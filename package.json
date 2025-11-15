@@ -1,0 +1,16 @@
+{
+  "name": "notes-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}

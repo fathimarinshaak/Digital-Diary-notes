@@ -1,0 +1,43 @@
+
+*{
+  font-family: "Homemade Apple", cursive;
+  /* font-weight: 400; */
+  font-style: normal;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+#bookcover{
+    background-image: url('/images/diary.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 85vh;
+    width: 25%;
+}
+#bookcover-open{
+    color: rgb(63, 51, 45);
+    font-weight: bolder;
+    margin-bottom: 70px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+#bookcontents{
+    background-image: url('/images/viewcontent.png');
+    background-size: cover;
+    height: 85vh;
+    width: 28%;
+}
+#bookcontents-add,#bookcontents-list,#home{
+    color: rgb(63, 51, 45);
+    font-weight: bolder;
+    margin-bottom: 20px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+    
+@media only screen and (min-width: 992px) {
+    
+}

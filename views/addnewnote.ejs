@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Homemade+Apple&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>NOTES</title>
+    <style>
+        #addnewnote{
+            background-image: url('/images/viewcontent.png');
+            background-size: cover;
+            height: 85vh;
+            width: 28%;
+        }
+            /* color: rgb(63, 51, 45); */
+    
+        #date{
+            font-weight: bolder;
+            /* margin-bottom: 70px; */
+            font-size: 15px;
+            text-decoration: none;
+        }
+        #dateinput{
+            background-color: transparent;
+            border: none;
+            outline: none;
+        }
+        #entry{
+            width: 290px;
+            height: 40vh;
+            background-color: transparent;
+            border: none;
+            outline: none;
+        }
+        #savebutton{
+            color: rgb(63, 51, 45);
+            font-weight: bolder;
+            margin-bottom: 70px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+       
+    </style>
+</head>
+
+<body class="vh-100 w-100 d-flex justify-content-center align-items-center bg-black"> 
+    
+    <div class="border-black d-flex flex-column justify-content-center align-items-end " id="addnewnote">
+        <!-- <h1 class="h1 m-5">NOTES</h1> -->
+
+        <form action="/addnewnote" method="post" class="d-flex flex-column justify-content-start align-items-start p-5 ">
+            <div id="date" class="mb-4">
+                <label for="start">Date -</label>
+                <input type="date" id="dateinput" name="date" />
+            </div>
+            <div >
+                <!-- <label for="entry">Diary Entry</label> -->
+                <textarea id="entry" placeholder="Write your thoughts here..." spellcheck="false" name="entry"></textarea>
+            </div>
+            <div class="d-flex justify-content-center align-content-center w-75 mb-1" id="savebutton">
+                <button type="submit" class="btn btn-dark" >save</button>
+            </div>
+           
+        </form>
+
+         <span id="pagenumber" class="me-5">Page : <%= pagenumber %></span>
+
+        <!-- <a href="/addnewnote" id="bookcontents-add" class="p-2">NEW <i class="bi bi-pencil"></i></a> -->
+
+    </div>
+
+    <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const dateinput = document.getElementById('dateinput')
+        dateinput.valueAsDate  = new Date()
+    </script>
+</body>
+</html
