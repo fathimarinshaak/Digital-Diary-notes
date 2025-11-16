@@ -4,67 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Homemade+Apple&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
     </style>
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>NOTES</title>
 </head>
-<style>
-    #notes{
-        background-image: url('/images/viewcontent.png');
-        background-size: cover;
-        height: 85vh;
-        width: 28%;
-    }
-    #viewbutton{
-        background-color: rgb(63, 51, 45);
-        font-weight: bolder;
-        /* margin-bottom: 70px; */
-        font-size: 15px;
-        text-decoration: none;
-        color: white;
-    }
-    
-</style>
+
 
 <body class="vh-100 w-100 d-flex justify-content-center align-items-center bg-black">
     
-    <div class="d-flex flex-column justify-content-start align-items-center gap-2 p-5" id="notes">
-        <!-- <a href="/viewnotes" id="bookcover-open" class="">OPEN</a> -->
-        <h1 class="h1 m-5">NOTES</h1>
+    <div class="d-flex flex-column justify-content-between align-items-center gap-2 p-5" id="notes">
 
-        <div class=" w-100">
-            <table class="table bg-info w-100" >
-                <!-- <thead>
-                    <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody> -->
-                <% notes.forEach((note,index)=>{ %>
-    
-                    <tr class="border-bottom ">
-                        <td  class="bg-transparent border-0"><%=index + 1%></th>
-                        <td class="bg-transparent border-0 text-truncate" style="overflow: hidden;text-overflow: ellipsis;"><%=note.entry%></td>
-                        <td  class="bg-transparent border-0"><a id="viewbutton" class="btn border-0" href="/contents/<%=note.index%>">View</a></td>
-                    </tr>
-                
-                <% }) %>
+        <h1 class="h1 m-4">NOTES</h1>
 
-                <!-- </tbody> -->
-                </table>
-            </div>
+        <div class="w-100 d-flex flex-column justify-content-between align-items-center overflow-auto gap-2 scroll " id="list">
+          <% notes.forEach((note)=>{ %>
+              <div class="note-card w-100 d-flex flex-column justify-content-start align-content-start gap-1 fw-bolder">
+                  <span id="note-card__pagenumber" >Page : <%=note.pagenumber%></span>
+                  <span><i class="bi bi-calendar"></i> <%=note.date%></span>
+                  <p class="text-truncate"><%=note.entry%></p>
+                  <a href="/viewnoteslist/<%=note.pagenumber%>" class="p-2 rounded"><i class="bi bi-journal-text"></i> View</a>                   
+              </div>
+          <% }) %>
+        </div>
 
-        
-
-        <!-- <a href="/addnewnote" id="bookcontents-add" class="p-2">New<i class="bi bi-pencil"></i></a>
-        <a href="/viewnotes" id="bookcontents-list" class="p-2">view your notes <i class="bi bi-journal-bookmark-fill"></i></a>
-        <a href="/" id="home"  class="p-2">home</a> -->
+        <a href="/contents" id="back-btn" class="btn"><i class="bi bi-arrow-left"></i> back</a>
 
     </div>
 

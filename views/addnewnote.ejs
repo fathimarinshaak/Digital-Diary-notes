@@ -10,67 +10,30 @@
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>NOTES</title>
-    <style>
-        #addnewnote{
-            background-image: url('/images/viewcontent.png');
-            background-size: cover;
-            height: 85vh;
-            width: 28%;
-        }
-            /* color: rgb(63, 51, 45); */
-    
-        #date{
-            font-weight: bolder;
-            /* margin-bottom: 70px; */
-            font-size: 15px;
-            text-decoration: none;
-        }
-        #dateinput{
-            background-color: transparent;
-            border: none;
-            outline: none;
-        }
-        #entry{
-            width: 290px;
-            height: 40vh;
-            background-color: transparent;
-            border: none;
-            outline: none;
-        }
-        #savebutton{
-            color: rgb(63, 51, 45);
-            font-weight: bolder;
-            margin-bottom: 70px;
-            font-size: 20px;
-            text-decoration: none;
-        }
-       
-    </style>
+   
 </head>
 
 <body class="vh-100 w-100 d-flex justify-content-center align-items-center bg-black"> 
     
-    <div class="border-black d-flex flex-column justify-content-center align-items-end " id="addnewnote">
-        <!-- <h1 class="h1 m-5">NOTES</h1> -->
+    <div class="border-black d-flex flex-column justify-content-evenly align-items-center " id="addnewnote">
 
-        <form action="/addnewnote" method="post" class="d-flex flex-column justify-content-start align-items-start p-5 ">
+        <a href="/contents" class="btn  align-self-start ms-4 mt-4 fw-bolder fs-3" ><i class="bi bi-arrow-left"></i></a>
+
+        <form action="/addnewnote" method="post" class="d-flex flex-column justify-content-start align-items-start  ">
             <div id="date" class="mb-4">
                 <label for="start">Date -</label>
                 <input type="date" id="dateinput" name="date" />
             </div>
             <div >
-                <!-- <label for="entry">Diary Entry</label> -->
                 <textarea id="entry" placeholder="Write your thoughts here..." spellcheck="false" name="entry"></textarea>
             </div>
-            <div class="d-flex justify-content-center align-content-center w-75 mb-1" id="savebutton">
-                <button type="submit" class="btn btn-dark" >save</button>
+            <div class="d-flex justify-content-center align-content-center w-75 mb-1 ms-5" id="savebutton">
+                <button type="submit" class="btn btn-dark " ><i class="bi bi-save"></i> save</button>
             </div>
            
         </form>
 
-         <span id="pagenumber" class="me-5">Page : <%= pagenumber %></span>
-
-        <!-- <a href="/addnewnote" id="bookcontents-add" class="p-2">NEW <i class="bi bi-pencil"></i></a> -->
+         <span id="pagenumber" class=" align-self-end me-5">Page : <%= pagenumber %></span>
 
     </div>
 

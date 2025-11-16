@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Homemade+Apple&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>NOTES</title>
+    
+</head>
+
+<body class="vh-100 w-100 d-flex justify-content-center align-items-center bg-black"> 
+    
+    <div class="border-black d-flex flex-column justify-content-center align-items-end p-3" id="addnewnote">
+
+        <form class="d-flex flex-column justify-content-start align-items-start p-5 ">
+            <div id="date" class="mb-4">
+                <label for="start">Date -</label>
+                <input type="date" id="dateinput" name="date" value="<%=currentNote.date%>"/>
+            </div>
+            <div >
+                <textarea id="entry" spellcheck="false" name="entry" value="entry"><%=currentNote.entry%></textarea>
+            </div>
+            <div class="d-flex justify-content-between align-content-center gap-5 w-75 mb-1" id="savebutton">
+                <a href="/viewnoteslist" class="btn btn-dark" ><i class="bi bi-arrow-left"></i></a>
+                <button formaction="/viewnoteslist/<%=currentNote.pagenumber%>/edit" formmethod="post" type="submit" class="btn btn-dark" ><i class="bi bi-pencil-fill"></i> </button>
+                <button formaction="/viewnoteslist/<%=currentNote.pagenumber%>/delete" formmethod="post" type="submit" class="btn btn-dark" ><i class="bi bi-trash3"></i></button>
+            </div>
+           
+        </form> 
+
+        <span id="pagenumber" class="me-5">Page : <%= currentNote.pagenumber %></span>
+
+    </div>
+
+    <script src="/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+   
+</body>
+</html

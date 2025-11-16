@@ -1,7 +1,6 @@
 
 *{
   font-family: "Homemade Apple", cursive;
-  /* font-weight: 400; */
   font-style: normal;
   box-sizing: border-box;
   margin: 0;
@@ -9,11 +8,13 @@
 
 #bookcover{
     background-image: url('/images/diary.png');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    height: 85vh;
-    width: 25%;
+    height: 100%;
+    max-height: 90vh;
+    width: 100%;
+    max-width: 360px;
 }
 #bookcover-open{
     color: rgb(63, 51, 45);
@@ -26,8 +27,12 @@
 #bookcontents{
     background-image: url('/images/viewcontent.png');
     background-size: cover;
-    height: 85vh;
-    width: 28%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    max-height: 90vh;
+    width: 100%;
+    max-width: 400px;
 }
 #bookcontents-add,#bookcontents-list,#home{
     color: rgb(63, 51, 45);
@@ -37,7 +42,124 @@
     text-decoration: none;
 }
 
-    
-@media only screen and (min-width: 992px) {
+#addnewnote{
+    background-image: url('/images/viewcontent.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    max-height: 90vh;
+    width: 100%;
+    max-width: 400px;
+}
+
+#date{
+    font-weight: bolder;
+    font-size: 15px;
+    text-decoration: none;
+}
+#dateinput{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+#entry{
+    width: 290px;
+    height: 40vh;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+#savebutton{
+    color: rgb(63, 51, 45);
+    font-weight: bolder;
+    margin-bottom: 70px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+#notes{
+    background-image: url('/images/viewcontent.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    max-height: 90vh;
+    width: 100%;
+    max-width: 400px;
+}
+
+#list{
+    overflow: hidden;
+}
+.note-card a{
+    width: fit-content;
+    background-color: rgb(63, 51, 45);
+    font-weight: bolder;
+    font-size: 15px;
+    text-decoration: none;
+    color: white;
+}
+
+.note-card {
+    border: rgb(63, 51, 45) solid 2px;
+    border-radius: 12px;
+    padding: 10px;
+    width: 100%;
+    height: 180px;
+}
+
+#list::-webkit-scrollbar{
+    display: none;
     
 }
+
+#back-btn {
+    position: sticky;
+    bottom: 10px;
+    background-color: #3f332d;
+    color: white;
+}
+
+@media only screen and (min-width: 1200px) {
+     #bookcover{
+        max-width: 420px;
+
+    }
+    #bookcontents,#addnewnote,#notes{
+        max-width: 450px;
+    }
+}
+    
+@media only screen and (max-width: 1200px) {
+     #bookcover{
+        max-width: 420px;
+
+    }
+    #bookcontents,#addnewnote,#notes{
+        max-width: 450px;
+    }
+}
+    
+@media only screen and (max-width: 992px) {
+    #bookcover{
+        max-width: 380px;
+    }
+    #bookcontents,#addnewnote,#notes{
+        max-width: 440px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #bookcover {
+        max-width: 300px;
+    }
+    #bookcontents,#addnewnote,#notes {
+        max-width: 330px;
+        max-height: 70vh;
+    }
+    #entry {
+        width: 90%;
+    }
+}
+

@@ -5,7 +5,7 @@ app.set('view engine','ejs')
 app.set('views','views')
 
 app.use(express.static('public'))
-app.use(express.urlencoded())
+app.use(express.urlencoded({ extended: true }))
 
 const notes = []
 
@@ -23,9 +23,8 @@ app.get('/addnewnote',(req,res)=>{
 })
 
 app.post('/addnewnote',(req,res)=>{
-    console.log(req.body)
     notes.push({
-        pagenumber:'',
+        pagenumber:notes.length+1,
         date:req.body.date,
         entry:req.body.entry
     })
@@ -33,8 +32,33 @@ app.post('/addnewnote',(req,res)=>{
     return res.redirect('/contents')
 })
 
-app.get('/viewnotes',(req,res)=>{
+app.get('/viewnoteslist',(req,res)=>{
     return res.render('viewnoteslist',{notes})
+})
+
+app.get('/viewnoteslist/:pagenumber',(req,res)=>{
+    const pagenumber = Number(req.params.pagenumber)
+    const currentNote = notes.find((i)=>{return i.pagenumber==pagenumber})
+    console.log(currentNote.pagenumber)
+    return res.render('viewnote',{currentNote})
+})
+
+app.post('/viewnoteslist/:pagenumber/edit',(req,res)=>{
+    const page = Number(req.params.pagenumber)
+    const {date,entry} = req.body
+    notes.splice(page-1,1,{pagenumber:page,date:date,entry:entry})
+    console.log(notes)
+    return res.redirect('/viewnoteslist')
+})
+
+app.post('/viewnoteslist/:pagenumber/delete',(req,res)=>{
+    const page = Number(req.params.pagenumber)
+    notes.splice(page-1,1)
+    notes.forEach((i,index)=>{
+        i.pagenumber = index + 1
+    })
+    console.log(notes)
+    return res.redirect('/viewnoteslist')
 })
 
 app.use((req,res,next)=>{
